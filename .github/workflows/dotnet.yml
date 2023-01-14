@@ -36,8 +36,13 @@ jobs:
       working-directory: UProd.WebApi
 
     - name: Publish
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/UProd.WebApi
+      run: dotnet publish -c Release -o publish
       working-directory: UProd.WebApi
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: UProd.WebApi/publish
 
   # Deployment job
   deploy:
