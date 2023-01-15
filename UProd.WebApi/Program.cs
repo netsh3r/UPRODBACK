@@ -18,7 +18,13 @@ namespace UProd.WebApi
                     builder =>
                     {
                         builder
-                            .WithOrigins("https://netsh3r.github.io/UPRODFRONT/")
+                            .WithOrigins(
+                                "http://localhost:3000",
+                                "http://localhost:3030",
+                                "https://localhost:3030",
+                                "http://localhost:7000",
+                                "https://localhost:7000",
+                                "https://netsh3r.github.io")
                             .AllowAnyMethod()
                             .AllowAnyHeader()
                             .AllowCredentials()
@@ -38,8 +44,7 @@ namespace UProd.WebApi
             app.UseCors("CorsAllowAll");
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
-
+            // app.UseAuthorization();
 
             app.MapControllers();
 

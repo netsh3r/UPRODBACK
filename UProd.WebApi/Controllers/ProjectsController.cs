@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UProd.WebApi.Controllers;
@@ -7,6 +8,7 @@ namespace UProd.WebApi.Controllers;
 [Route("api/[controller]/[action]")]
 public class ProjectsController : ControllerBase
 {
+    [EnableCors("CorsAllowAll")]
     [HttpGet]
     public List<object> List()
     {
@@ -14,19 +16,19 @@ public class ProjectsController : ControllerBase
         {
             new
             {
-                Name = "Тест",
+                Name = "Тест 3",
                 Id = 1,
                 Description = "Тест"
             },
             new
             {
-                Name = "Тест",
+                Name = "Тест 2",
                 Id = 1,
                 Description = "Тест"
             },
             new
             {
-                Name = "Тест",
+                Name = "Тест 1",
                 Id = 1,
                 Description = "Тест"
             }
