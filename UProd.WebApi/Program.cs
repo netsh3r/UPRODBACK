@@ -1,3 +1,5 @@
+using UProd.Services;
+
 namespace UProd.WebApi
 {
     public class Program
@@ -6,8 +8,8 @@ namespace UProd.WebApi
         {
             var builder = WebApplication.CreateBuilder();
 
-            // Add services to the container.
-
+            builder.Services.AddDependencyGroup();
+            builder.WebHost.UseUrls();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -22,8 +24,6 @@ namespace UProd.WebApi
                                 "http://localhost:3000",
                                 "http://localhost:3030",
                                 "https://localhost:3030",
-                                "http://localhost:7000",
-                                "https://localhost:7000",
                                 "https://netsh3r.github.io")
                             .AllowAnyMethod()
                             .AllowAnyHeader()
